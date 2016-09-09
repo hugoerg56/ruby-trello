@@ -432,6 +432,14 @@ module Trello
     def comments
       comments = Comment.from_response client.get("/cards/#{id}/actions", filter: "commentCard")
     end
+    
+    def updates
+      updates = Update.from_response client.get("/cards/#{id}/actions", filter: "updateCard")
+    end  
+    
+    def last_update
+      updates.first.date
+    end  
 
     # Find the creation date
     def created_at

@@ -39,6 +39,7 @@ require 'addressable/uri'
 module Trello
   autoload :Action,            'trello/action'
   autoload :Comment,           'trello/comment'
+  autoload :Update,            'trello/update'  
   autoload :Association,       'trello/association'
   autoload :AssociationProxy,  'trello/association_proxy'
   autoload :Attachment,        'trello/attachment'
