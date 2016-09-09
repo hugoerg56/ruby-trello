@@ -14,6 +14,19 @@ module Trello
     validates_length_of   :text,        in: 1..16384
 
 
+    # Update the attributes of a Update
+    #
+    # Supply a hash of string keyed data retrieved from the Trello API representing
+    # a Update.
+    def update_fields(fields)
+      attributes[:action_id]          = fields['id']
+      attributes[:text]               = fields['data']['text']
+      attributes[:date]               = Time.iso8601(fields['date'])
+      attributes[:member_creator_id]  = fields['idMemberCreator']
+      self
+    end
+
+
     def board
       Board.from_response client.get("/actions/#{action_id}/board")
     end
