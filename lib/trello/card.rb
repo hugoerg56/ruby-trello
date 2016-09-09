@@ -438,7 +438,8 @@ module Trello
     end  
     
     def last_update
-      updates.first.date
+      lupdate = updates.first
+      lupdate ? updates.first.date : last_activity_date
     end  
 
     # Find the creation date
